@@ -12,6 +12,9 @@ fun is_good(x : string) : bool =
     head = "> "
   end
 
+fun version() : void =
+  println!("illiterate version 0.1.0\nCopyright (c) 2018 Vanessa McHale")
+
 fun help() : void =
   print("lit - A literate programming preprocessor.
 \33[36mUSAGE:\33[0m lit LITERATE PLAIN
