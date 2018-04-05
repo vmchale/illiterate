@@ -32,7 +32,7 @@ fun as_string(x : stream_vt(string)) : string =
 // val (pf | file_ptr) = popen(in_file, $UN.cast("r"))
 // val _ = pclose1_exn(pf | file_ptr)
 // TODO figure out how tf to write inner loop?
-// usage: lit --input INPUT --output OUTPUT
+// usage: lit INPUT OUTPUT
 // defaulting to stdio/stdout
 fun make_illiterate(in_file : string) : string =
   let
