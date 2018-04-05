@@ -16,5 +16,5 @@ install:
 script:
   - curl -sL https://raw.githubusercontent.com/vmchale/tomlcheck/master/sh/check | sh -s .atsfmt.toml
   - atspkg build
-  - wget https://raw.githubusercontent.com/simonmar/happy/master/examples/Calc.ly -O test/data/calc.ly
-  - ./target/lit test/data/calc.ly
+  - wget https://raw.githubusercontent.com/simonmar/happy/master/examples/Calc.ly -O calc.ly
+  - ./target/lit calc.ly
