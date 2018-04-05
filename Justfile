@@ -1,3 +1,7 @@
+ci:
+    yamllint .travis.yml
+    tomlcheck --file .atsfmt.toml
+
 example:
     mkdir -p test/data
     duma https://raw.githubusercontent.com/simonmar/happy/master/examples/Calc.ly -O test/data/calc.ly

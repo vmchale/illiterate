@@ -1,10 +1,15 @@
 ---
 language: c
+addons:
+  apt:
+    packages:
+      - python3-pip
 cache:
   directories:
     - $HOME/.atspkg
 install:
   - mkdir -p $HOME/.local/bin
+  - pip3 install yamllint
   - curl -sSl https://raw.githubusercontent.com/vmchale/atspkg/master/bash/install.sh | bash -s
   - export PATH=$HOME/.local/bin:$PATH
   - atspkg -V
