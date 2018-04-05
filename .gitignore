@@ -1,0 +1,5 @@
+test/data/calc.ly
+tags
+.atspkg
+target
+*.c
