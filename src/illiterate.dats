@@ -5,6 +5,8 @@ staload "prelude/SATS/filebas.sats"
 staload "libats/ML/SATS/filebas.sats"
 staload UN = "prelude/SATS/unsafe.sats"
 
+#include "src/cli.dats"
+
 fun is_good(x : string) : bool =
   let
     val head = string_make_substring(x, i2sz(0), i2sz(2))
@@ -16,13 +18,16 @@ fun version() : void =
   println!("illiterate version 0.1.0\nCopyright (c) 2018 Vanessa McHale")
 
 fun help() : void =
-  print("lit - A literate programming preprocessor.
+  {
+    val _ = print("lit - A literate programming preprocessor.
 \33[36mUSAGE:\33[0m lit LITERATE PLAIN
 \33[36mFLAGS:\33[0m
     -V, --version            show version information
     -h, --help               display this help and exit
     
     Bug reports and updates: github.com/vmchale/illiterate\n")
+    val _ = exit(0)
+  }
 
 fun as_sub(x : string) : string =
   let
@@ -61,11 +66,14 @@ fun bird_process(in_file : string) : string =
     ret
   end
 
-fun print_error() : void =
+fun error(s : string) : void =
   {
-    val _ = prerrln!("\33[31mError:\33[0m: No input file supplied")
+    val _ = prerrln!("\33[31mError:\33[0m: " + s)
     val _ = exit(1)
   }
+
+fun is_flag(s : string) : bool =
+  string_is_prefix("-", s)
 
 // set type by flags?
 // TODO allow to standard input?
@@ -75,7 +83,7 @@ implement main0 (argc, argv) =
     val x = if argc > 1 then
       argv[1]
     else
-      (print_error() ; "")
+      (error("No file supplied.") ; "")
     val s = bird_process(x)
     val _ = println!(s)
   }
