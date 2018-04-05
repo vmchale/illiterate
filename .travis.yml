@@ -7,6 +7,7 @@ addons:
 cache:
   directories:
     - $HOME/.atspkg
+    - $HOME/.local
 install:
   - mkdir -p $HOME/.local/bin
   - pip3 install yamllint --user
