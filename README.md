@@ -1,5 +1,7 @@
 # illiterate
 
+[![Build Status](https://travis-ci.org/vmchale/illiterate.svg?branch=master)](https://travis-ci.org/vmchale/illiterate)
+
 A preprocessor meant for literate programming. Follows the conventions defined
 [here](https://www.haskell.org/onlinereport/literate.html).
 
