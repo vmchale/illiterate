@@ -1,6 +1,6 @@
 > {
 > module Calc where
-> import Char
+> import Data.Char
 > }
 
 First thing to declare is the name of your parser,
@@ -13,17 +13,17 @@ The parser will be of type [Token] -> ?, where ? is determined by the
 production rules.  Now we declare all the possible tokens:
 
 > %token 
->	let		{ TokenLet }
->	in		{ TokenIn }
->	int		{ TokenInt $$ }
->	var		{ TokenVar $$ }
->	'='		{ TokenEq }
->	'+'		{ TokenPlus }
->	'-'		{ TokenMinus }
->	'*'		{ TokenTimes }
->	'/'		{ TokenDiv }
->	'('		{ TokenOB }
->	')'		{ TokenCB }
+>       let             { TokenLet }
+>       in              { TokenIn }
+>       int             { TokenInt $$ }
+>       var             { TokenVar $$ }
+>       '='             { TokenEq }
+>       '+'             { TokenPlus }
+>       '-'             { TokenMinus }
+>       '*'             { TokenTimes }
+>       '/'             { TokenDiv }
+>       '('             { TokenOB }
+>       ')'             { TokenCB }
 
 The left hand side are the names of the terminals or tokens,
 and the right hand side is how to pattern match them.
@@ -65,7 +65,7 @@ Note that currently we do no error recovery.
 
 Now we declare the datastructure that we are parsing.
 
-> data Exp  = Let String Exp Exp | Exp1 Exp1 
+> data Exp = Let String Exp Exp | Exp1 Exp1 
 > data Exp1 = Plus Exp1 Term | Minus Exp1 Term | Term Term 
 > data Term = Times Term Factor | Div Term Factor | Factor Factor 
 > data Factor = Int Int | Var String | Brack Exp 
@@ -102,7 +102,7 @@ The datastructure for the tokens...
 > lexer (')':cs) = TokenCB : lexer cs
 
 > lexNum cs = TokenInt (read num) : lexer rest
->	where (num,rest) = span isDigit cs
+>       where (num,rest) = span isDigit cs
 
 > lexVar cs =
 >    case span isAlpha cs of

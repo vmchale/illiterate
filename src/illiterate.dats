@@ -11,7 +11,7 @@ fun is_good(x : string) : bool =
   let
     var head = string_make_substring(x, i2sz(0), i2sz(2))
   in
-    head = "> " || head = ">\t"
+    head = "> "
   end
 
 fun as_sub(x : string) : string =
