@@ -24,3 +24,14 @@ As an example:
 ```bash
 lit literate.lidr > plain.idr
 ```
+
+### Shake
+
+An example using [shake](http://shakebuild.com/):
+
+```haskell
+literateR :: Rules ()
+literateR =
+    "plain.idr" %> \out ->
+        illiterateA "literate.lidr" out
+```

@@ -9,14 +9,14 @@ staload UN = "prelude/SATS/unsafe.sats"
 
 fun is_good(x : string) : bool =
   let
-    val head = string_make_substring(x, i2sz(0), i2sz(2))
+    var head = string_make_substring(x, i2sz(0), i2sz(2))
   in
-    head = "> "
+    head = "> " || head = ">\t"
   end
 
 fun as_sub(x : string) : string =
   let
-    val l = length(x)
+    var l = length(x)
   in
     string_make_substring(x, i2sz(2), l)
   end
@@ -27,7 +27,7 @@ fun as_string(x : stream_vt(string)) : string =
       case+ !x of
         | ~stream_vt_nil() => ""
         | ~stream_vt_cons (y, ys) => let
-          val z = loop(ys)
+          var z = loop(ys)
         in
           if z != "" then
             y + "\n" + z
@@ -61,11 +61,11 @@ fun loop_process(x : stream_vt(string), code_block : bool) : stream_vt(string) =
     | ~stream_vt_cons (x, xs) => loop_process(xs, code_block)
     | ~stream_vt_nil() => $ldelay(stream_vt_nil)
 
-fun bird_process(in_file : string) : string =
+fun process(in_file : string) : string =
   let
-    val file_ref = fileref_open_exn(in_file, file_mode_r)
-    val file_stream = streamize_fileref_line(file_ref)
-    val ret_stream = loop_process(file_stream, false)
+    var file_ref = fileref_open_exn(in_file, file_mode_r)
+    var file_stream = streamize_fileref_line(file_ref)
+    var ret_stream = loop_process(file_stream, false)
   in
     as_string(ret_stream)
   end
@@ -78,10 +78,10 @@ fun is_flag(s : string) : bool =
 // stdin_ref should work.
 implement main0 (argc, argv) =
   {
-    val x = if argc > 1 then
+    var x = if argc > 1 then
       argv[1]
     else
-      (fail("No file supplied. Run lit --help if stuck.") ; "")
-    val s = bird_process(x)
+      (fail("No file supplied. Try lit --help if stuck.") ; "")
+    var s = process(x)
     val _ = println!(s)
   }
