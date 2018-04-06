@@ -1,3 +1,4 @@
+> -- adapted from original here: https://github.com/simonmar/happy/blob/master/examples/Calc.ly
 > {
 > module Calc where
 > import Data.Char
