@@ -5,9 +5,6 @@
 A language-agnostic preprocessor for literate programming. Supports Bird-style
 and TeX-style literate programming.
 
-You can easily write build systems with `lit` using the `shake-ext`
-[package](http://hackage.haskell.org/package/shake-ext).
-
 ## Installation
 
 You can install `atspkg` and `lit` with the following:
