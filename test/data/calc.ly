@@ -73,26 +73,26 @@ Now we declare the datastructure that we are parsing.
 The datastructure for the tokens...
 
 > data Token
->	= TokenLet
->	| TokenIn
->	| TokenInt Int
->	| TokenVar String
->	| TokenEq
->	| TokenPlus
->	| TokenMinus
->	| TokenTimes
->	| TokenDiv
->	| TokenOB
->	| TokenCB
+>       = TokenLet
+>       | TokenIn
+>       | TokenInt Int
+>       | TokenVar String
+>       | TokenEq
+>       | TokenPlus
+>       | TokenMinus
+>       | TokenTimes
+>       | TokenDiv
+>       | TokenOB
+>       | TokenCB
 
 .. and a simple lexer that returns this datastructure.
 
 > lexer :: String -> [Token]
 > lexer [] = []
 > lexer (c:cs) 
->	| isSpace c = lexer cs
-> 	| isAlpha c = lexVar (c:cs)
->	| isDigit c = lexNum (c:cs)
+>       | isSpace c = lexer cs
+>       | isAlpha c = lexVar (c:cs)
+>       | isDigit c = lexNum (c:cs)
 > lexer ('=':cs) = TokenEq : lexer cs
 > lexer ('+':cs) = TokenPlus : lexer cs
 > lexer ('-':cs) = TokenMinus : lexer cs
@@ -106,9 +106,9 @@ The datastructure for the tokens...
 
 > lexVar cs =
 >    case span isAlpha cs of
->	("let",rest) -> TokenLet : lexer rest
->	("in",rest)  -> TokenIn : lexer rest
->	(var,rest)   -> TokenVar var : lexer rest
+>       ("let",rest) -> TokenLet : lexer rest
+>       ("in",rest)  -> TokenIn : lexer rest
+>       (var,rest)   -> TokenVar var : lexer rest
 
 To run the program, call this in gofer, or use some code
 to print it.
