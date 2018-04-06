@@ -26,7 +26,14 @@ fun as_string(x : stream_vt(string)) : string =
     fun loop(x : stream_vt(string)) : string =
       case+ !x of
         | ~stream_vt_nil() => ""
-        | ~stream_vt_cons (y, ys) => y + "\n" + loop(ys)
+        | ~stream_vt_cons (y, ys) => let
+          val z = loop(ys)
+        in
+          if z != "" then
+            y + "\n" + z
+          else
+            y
+        end
   in
     loop(x)
   end
@@ -63,12 +70,6 @@ fun bird_process(in_file : string) : string =
     as_string(ret_stream)
   end
 
-fun error(s : string) : void =
-  {
-    val _ = prerrln!("\33[31mError:\33[0m: " + s)
-    val _ = exit(1)
-  }
-
 fun is_flag(s : string) : bool =
   string_is_prefix("-", s)
 
@@ -80,7 +81,7 @@ implement main0 (argc, argv) =
     val x = if argc > 1 then
       argv[1]
     else
-      (error("No file supplied.") ; "")
+      (fail("No file supplied. Run lit --help if stuck.") ; "")
     val s = bird_process(x)
     val _ = println!(s)
   }

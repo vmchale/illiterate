@@ -5,6 +5,7 @@ ci:
 example:
     atspkg build
     ./target/lit test/data/calc.ly
+    ./target/lit test/data/example.lhs
 
 clean:
     rm -f tags

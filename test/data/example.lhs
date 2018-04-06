@@ -1,3 +1,5 @@
+\documentclass{article}
+
 \begin{document}
 
 Some \LaTeX bullshit

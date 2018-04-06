@@ -1,5 +1,11 @@
 typedef cli_config = @{ should_help = bool, version = bool, input_f = string, output_f = FILEref }
 
+fun fail(s : string) : void =
+  {
+    val _ = prerrln!("\33[31mError:\33[0m: " + s)
+    val _ = exit(1)
+  }
+
 fun version() : void =
   println!("illiterate version 0.1.0\nCopyright (c) 2018 Vanessa McHale")
 
