@@ -3,7 +3,7 @@
 [![Build Status](https://travis-ci.org/vmchale/illiterate.svg?branch=master)](https://travis-ci.org/vmchale/illiterate)
 
 A language-agnostic preprocessor for literate programming. Supports Bird-style
-literate programming and TeX.
+and TeX-style literate programming. 
 
 You can easily write build systems with `lit` using the `shake-ext`
 [package](http://hackage.haskell.org/package/shake-ext).
@@ -22,5 +22,5 @@ atspkg remote https://github.com/vmchale/illiterate/archive/master.zip
 As an example:
 
 ```bash
-lit literate.lidr --output plain.idr
+lit literate.lidr > plain.idr
 ```

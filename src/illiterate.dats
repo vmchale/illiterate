@@ -14,21 +14,6 @@ fun is_good(x : string) : bool =
     head = "> "
   end
 
-fun version() : void =
-  println!("illiterate version 0.1.0\nCopyright (c) 2018 Vanessa McHale")
-
-fun help() : void =
-  {
-    val _ = print("lit - A literate programming preprocessor.
-\33[36mUSAGE:\33[0m lit LITERATE PLAIN
-\33[36mFLAGS:\33[0m
-    -V, --version            show version information
-    -h, --help               display this help and exit
-    
-    Bug reports and updates: github.com/vmchale/illiterate\n")
-    val _ = exit(0)
-  }
-
 fun as_sub(x : string) : string =
   let
     val l = length(x)
@@ -46,24 +31,36 @@ fun as_string(x : stream_vt(string)) : string =
     loop(x)
   end
 
-// TODO figure out how tf to write inner loop?
-// val (pf | file_ptr) = popen(in_file, $UN.cast("r"))
-// val _ = pclose1_exn(pf | file_ptr)
-// usage: lit INPUT OUTPUT
-// defaulting to stdio/stdout
+fun loop_process(x : stream_vt(string), code_block : bool) : stream_vt(string) =
+  case+ !x of
+    | ~stream_vt_cons ("\\begin{code}", xs) when not(code_block) => loop_process(xs, true)
+    | ~stream_vt_cons ("\\end{code}", xs) when code_block => loop_process(xs, false)
+    | ~stream_vt_cons (x, xs) when code_block => 
+      begin
+        let
+          val ys = loop_process(xs, code_block)
+        in
+          $ldelay(stream_vt_cons(x, ys), ~ys)
+        end
+      end
+    | ~stream_vt_cons (x, xs) when is_good(x) => 
+      begin
+        let
+          val ys = loop_process(xs, code_block)
+        in
+          $ldelay(stream_vt_cons(as_sub(x), ys), ~ys)
+        end
+      end
+    | ~stream_vt_cons (x, xs) => loop_process(xs, code_block)
+    | ~stream_vt_nil() => $ldelay(stream_vt_nil)
+
 fun bird_process(in_file : string) : string =
   let
     val file_ref = fileref_open_exn(in_file, file_mode_r)
     val file_stream = streamize_fileref_line(file_ref)
-    val filter_stream = stream_vt_filter_cloptr( file_stream
-                                               , lam x =<cloptr1> is_good(x)
-                                               )
-    val map_stream = stream_vt_map_cloptr( filter_stream
-                                         , lam x =<cloptr1> as_sub(x)
-                                         )
-    val ret = as_string(map_stream)
+    val ret_stream = loop_process(file_stream, false)
   in
-    ret
+    as_string(ret_stream)
   end
 
 fun error(s : string) : void =

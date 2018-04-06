@@ -10,4 +10,4 @@ example:
 
 clean:
     atspkg clean
-    rm -rf test/data tags
+    rm -f test/data/calc.ly tags
