@@ -13,6 +13,8 @@ lit - a command-line tool for counting source code
 
 **lit** is a language-agnostic preprocessor for literate programming.
 
+It supports both Bird-style and TeX-style literate programming.
+
 # OPTIONS
 
 **-h**, **-\-help** Display help and exit
