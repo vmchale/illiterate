@@ -1,3 +1,6 @@
+poly:
+    poly -e data
+
 ci:
     yamllint .travis.yml
     tomlcheck --file .atsfmt.toml
