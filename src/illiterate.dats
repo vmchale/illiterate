@@ -70,18 +70,21 @@ fun process(in_file : string) : string =
     as_string(ret_stream)
   end
 
-fun is_flag(s : string) : bool =
-  string_is_prefix("-", s)
-
 // set type by flags?
 // TODO allow to standard input?
 // stdin_ref should work.
 implement main0 (argc, argv) =
   {
-    var x = if argc > 1 then
-      argv[1]
+    val cfg = get_cli(argc, argv, 0, empty_config)
+    val _ = if cfg.should_help then
+      help()
+    val _ = if cfg.version then
+      version()
+    val x0 = cfg.input_f
+    val x = if x0 != "þ" then
+      x0
     else
-      (fail("No file supplied. Try lit --help if stuck.") ; "")
+      (fail("no input file given.") ; "")
     var s = process(x)
     val _ = println!(s)
   }
