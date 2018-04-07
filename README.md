@@ -30,18 +30,3 @@ As an example:
 ```bash
 lit literate.lidr > plain.idr
 ```
-
-### Shake
-
-An example using [shake](http://shakebuild.com/) and
-[shake-ext](http://hackage.haskell.org/package/shake-ext):
-
-```haskell
-import Development.Shake
-import Development.Shake.Literate
-
-literateR :: Rules ()
-literateR =
-    "plain.idr" %> \out ->
-        illiterateA "literate.lidr" out
-```
