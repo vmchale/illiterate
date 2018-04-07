@@ -3,7 +3,7 @@
 
 # NAME
 
-illiterate - a command-line tool for counting source code
+lit - a command-line tool for counting source code
 
 # SYNOPSIS
 
@@ -21,7 +21,7 @@ illiterate - a command-line tool for counting source code
 
 # EXAMPLES
 
-Render literate.lidr to plain.idr:
+Render literate Idris to plain Idris:
 
 ```
 lit literate.lidr > plain.idr
