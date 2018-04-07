@@ -25,9 +25,6 @@ fun help() : void =
     -V, --version            show version information
     -h, --help               display this help and exit
 
-    If no output file is set, the generated source code will
-    be printed to the terminal.
-    
     Bug reports and updates: github.com/vmchale/illiterate\n")
     val _ = exit(0)
   }
