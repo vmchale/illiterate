@@ -18,4 +18,4 @@ script:
   - curl -sL https://raw.githubusercontent.com/vmchale/tomlcheck/master/sh/check | sh -s .atsfmt.toml
   - atspkg build
   - ./target/lit test/data/calc.ly
-  - ./target/lit test/data/example.lhs
+  - ./target/lit test/data/setup.lhs
