@@ -14,6 +14,15 @@ curl -sSl https://raw.githubusercontent.com/vmchale/atspkg/master/bash/install.s
 atspkg remote https://github.com/vmchale/illiterate/archive/master.zip
 ```
 
+### Manpages
+
+If install [pandoc](http://pandoc.org/installing.html), manpages will be
+automatically generated when running the above. You can view them with
+
+```bash
+man lit
+```
+
 ## Use
 
 As an example:
