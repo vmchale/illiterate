@@ -5,6 +5,9 @@
 A language-agnostic preprocessor for literate programming. Supports Bird-style
 and TeX-style literate programming.
 
+The secondary goal of this project is to advance the state-of-the art for ATS
+programming.
+
 ## Installation
 
 You can install `atspkg` and `lit` with the following:
