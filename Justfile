@@ -13,3 +13,6 @@ example:
 clean:
     rm -f tags
     atspkg clean
+
+deb:
+    atspkg build target/illiterate.deb
