@@ -19,3 +19,4 @@ script:
   - atspkg build
   - ./target/lit test/data/calc.ly
   - ./target/lit test/data/setup.lhs
+  - atspkg build target/illiterate.deb
