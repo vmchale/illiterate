@@ -7,7 +7,7 @@ in
 let cross = True
 in
 
-let man = [] -- [ "man/lit.1" ]
+let man = [ "man/lit.1" ]
   : Optional Text
 in
 
@@ -20,6 +20,7 @@ prelude.default ⫽
       }
     ]
   , compiler = [0,3,10]
+  , completions = [ "compleat/lit.usage" ] : Optional Text
   , man = [ "man/lit.md" ] : Optional Text
   , cflags = [ "-flto", "-O2" ] # (if not cross then [ "-mtune=native" ] else ([] : List Text))
   , debPkg =

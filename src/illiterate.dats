@@ -8,6 +8,7 @@ staload UN = "prelude/SATS/unsafe.sats"
 
 #include "src/cli.dats"
 
+// TODO figure out how to read into a buffer, etc.
 (*
 fn no_gc_stream(s : string) : stream_vt(Strptr1) =
   let
