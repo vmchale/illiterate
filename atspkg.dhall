@@ -20,7 +20,6 @@ prelude.default ⫽
       }
     ]
   , compiler = [0,3,10]
-  , completions = [ "compleat/lit.usage" ] : Optional Text
   , man = [ "man/lit.md" ] : Optional Text
   , cflags = [ "-flto", "-O2" ] # (if not cross then [ "-mtune=native" ] else ([] : List Text))
   , debPkg =
