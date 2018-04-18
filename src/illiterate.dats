@@ -2,11 +2,20 @@
 #include "share/atspre_staload_libats_ML.hats"
 
 staload "prelude/SATS/filebas.sats"
-staload "libats/ML/SATS/filebas.sats"
+staload ML = "libats/ML/SATS/filebas.sats"
+staload "libats/libc/SATS/stdio.sats"
 staload UN = "prelude/SATS/unsafe.sats"
 
 #include "src/cli.dats"
 
+(*
+fn no_gc_stream(s : string) : stream_vt(Strptr1) =
+  let
+    var x: FILEptr1 = fopen_exn(s, file_mode_r)
+  in
+    streamize_fileptr_line($UN.castvwtp0(x))
+  end
+*)
 fun is_good(x : string) : bool =
   let
     var head = string_make_substring(x, i2sz(0), i2sz(2))
@@ -64,7 +73,7 @@ fun loop_process(x : stream_vt(string), code_block : bool) : stream_vt(string) =
 fun process(in_file : string) : string =
   let
     var file_ref = fileref_open_exn(in_file, file_mode_r)
-    var file_stream = streamize_fileref_line(file_ref)
+    var file_stream = $ML.streamize_fileref_line(file_ref)
     var ret_stream = loop_process(file_stream, false)
   in
     as_string(ret_stream)
