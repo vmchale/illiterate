@@ -14,3 +14,5 @@
 - [ ] Benchmarks
 # Features
 - [ ] Convert to markdown?
+# Packaging
+- [ ] Debianization

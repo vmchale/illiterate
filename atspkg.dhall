@@ -18,4 +18,16 @@ prelude.default ⫽
   , compiler = [0,3,10]
   , man = [ "man/lit.md" ] : Optional Text
   , cflags = [ "-flto", "-O2" ] # (if not cross then [ "-mtune=native" ] else ([] : List Text))
+  , debPkg =
+      [
+        prelude.debian "illiterate" ⫽
+          { version = [0,1,0]
+          , maintainer = "Vanessa McHale <vamchale@gmail.com>"
+          , description = "Literate programming preprocessor"
+          , manpage = [ "man/lit.1" ]
+            : Optional Text
+          , binaries = [ "target/lit" ]
+          }
+      ] : Optional prelude.Debian
+  }
   }
