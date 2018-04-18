@@ -7,7 +7,7 @@ in
 let cross = True
 in
 
-let man = [] -- [ "man/lit.1" ]
+let man = [ "man/lit.1" ]
   : Optional Text
 in
 

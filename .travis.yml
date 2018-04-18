@@ -16,6 +16,7 @@ install:
   - atspkg -V
 script:
   - yamllint .travis.yml
+  - yamllint .yamllint
   - curl -sL https://raw.githubusercontent.com/vmchale/tomlcheck/master/sh/check | sh -s .atsfmt.toml
   - atspkg build
   - ./target/lit test/data/calc.ly
