@@ -7,6 +7,10 @@ in
 let cross = True
 in
 
+let man = [] -- [ "man/lit.1" ]
+  : Optional Text
+in
+
 prelude.default ⫽
   { bin =
     [ prelude.bin ⫽
@@ -24,8 +28,7 @@ prelude.default ⫽
           { version = [0,1,0]
           , maintainer = "Vanessa McHale <vamchale@gmail.com>"
           , description = "Literate programming preprocessor"
-          , manpage = [ "man/lit.1" ]
-            : Optional Text
+          , manpage = man
           , binaries = [ "target/lit" ]
           }
       ] : Optional prelude.Debian
