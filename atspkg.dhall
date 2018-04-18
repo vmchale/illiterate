@@ -30,4 +30,3 @@ prelude.default ⫽
           }
       ] : Optional prelude.Debian
   }
-  }
