@@ -5,6 +5,9 @@ ci:
     yamllint .travis.yml
     tomlcheck --file .atsfmt.toml
 
+cross:
+    atspkg clean ; atspkg nuke ; atspkg build --target=x86_64-unknown-redox
+
 example:
     atspkg build
     ./target/lit test/data/calc.ly

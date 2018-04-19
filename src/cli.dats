@@ -22,7 +22,7 @@ fun help() : void =
     val _ = print("lit - A literate programming preprocessor.
 \33[36mUSAGE:\33[0m lit FILE FLAGS ...
 \33[36mFLAGS:\33[0m
-    -V, --version            show version information
+    -v, --version            show version information
     -h, --help               display this help and exit
 
     Bug reports and updates: github.com/vmchale/illiterate\n")
