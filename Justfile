@@ -1,3 +1,6 @@
+bench:
+    bench "./target/lit test/data/calc.ly" "lit test/data/calc.ly"
+
 poly:
     @poly -e data
 

@@ -9,18 +9,8 @@ in
 let cross = True
 in
 
-let ccomp = False
-in
-
 {- Helpers -}
-let cc = if ccomp
-  then "ccomp"
-  else "gcc"
-in
-
-let ccopts = if not ccomp
-  then [ "-flto" ]
-  else [ "-fstruct-passing" ]
+let ccopts = [ "-flto" ]
 in
 
 let man = [ "man/lit.1" ]
@@ -36,7 +26,7 @@ prelude.default ⫽
       , gcBin = True
       }
     ]
-  , ccompiler = cc
+  , ccompiler = "clang"
   , compiler = [0,3,10]
   , man = [ "man/lit.md" ] : Optional Text
   , cflags = ccopts # [ "-O2" ] # (if not cross then [ "-mtune=native" ] else ([] : List Text))
