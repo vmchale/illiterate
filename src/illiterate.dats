@@ -8,15 +8,6 @@ staload UN = "prelude/SATS/unsafe.sats"
 
 #include "src/cli.dats"
 
-// TODO figure out how to read into a buffer, etc.
-(*
-fn no_gc_stream(s : string) : stream_vt(Strptr1) =
-  let
-    var x: FILEptr1 = fopen_exn(s, file_mode_r)
-  in
-    streamize_fileptr_line($UN.castvwtp0(x))
-  end
-*)
 fun is_good(x : string) : bool =
   let
     var head = string_make_substring(x, i2sz(0), i2sz(2))
