@@ -1,23 +1,37 @@
 ---
-language: c
-addons:
-  apt:
-    packages:
-      - python3-pip
+matrix:
+  include:
+
+    - env: TARGET="x86_64-unknown-linux"
+      os: linux
+      language: python
+
+    - env: TARGET="x86_64-apple-darwin"
+      os: osx
+      language: c
+
 cache:
   directories:
     - $HOME/.atspkg
     - $HOME/.local
 install:
   - mkdir -p $HOME/.local/bin
-  - pip3 install yamllint --user
+  - |
+    if [ $TARGET = "x86_64-unknown-linux" ]
+    then
+      pip3 install yamllint --user
+    fi
   - curl -sSl https://raw.githubusercontent.com/vmchale/atspkg/master/bash/install.sh | bash -s
   - export PATH=$HOME/.local/bin:$PATH
   - atspkg -V
 script:
-  - yamllint .travis.yml
-  - yamllint .yamllint
-  - curl -sL https://raw.githubusercontent.com/vmchale/tomlcheck/master/sh/check | sh -s .atsfmt.toml
+  - |
+    if [ $TARGET = "x86_64-unknown-linux" ]
+      yamllint .travis.yml
+      yamllint .yamllint
+      curl -sL https://raw.githubusercontent.com/vmchale/tomlcheck/master/sh/check | sh -s .atsfmt.toml
+    then
+    fi
   - atspkg build
   - ./target/lit test/data/calc.ly
   - ./target/lit test/data/setup.lhs
