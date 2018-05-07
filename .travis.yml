@@ -24,6 +24,8 @@ install:
     if [ $TARGET = "x86_64-unknown-linux" ]
     then
       pip3 install yamllint --user
+    else
+      echo 'skipping'
     fi
   - curl -sSl https://raw.githubusercontent.com/vmchale/atspkg/master/bash/install.sh | bash -s
   - export PATH=$HOME/.local/bin:$PATH
@@ -31,10 +33,10 @@ install:
 script:
   - |
     if [ $TARGET = "x86_64-unknown-linux" ]
+    then
       yamllint .travis.yml
       yamllint .yamllint
       curl -sL https://raw.githubusercontent.com/vmchale/tomlcheck/master/sh/check | sh -s .atsfmt.toml
-    then
     fi
   - atspkg build -vvv
   - ./target/lit test/data/calc.ly
