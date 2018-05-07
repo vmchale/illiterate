@@ -36,6 +36,6 @@ script:
       curl -sL https://raw.githubusercontent.com/vmchale/tomlcheck/master/sh/check | sh -s .atsfmt.toml
     then
     fi
-  - atspkg build
+  - atspkg build -vvv
   - ./target/lit test/data/calc.ly
   - ./target/lit test/data/setup.lhs
