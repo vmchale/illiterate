@@ -30,6 +30,7 @@ install:
   - curl -sSl https://raw.githubusercontent.com/vmchale/atspkg/master/bash/install.sh | bash -s
   - export PATH=$HOME/.local/bin:$PATH
   - atspkg -V
+  - cc --version
 script:
   - |
     if [ $TARGET = "x86_64-unknown-linux" ]
