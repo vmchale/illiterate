@@ -24,6 +24,7 @@ prelude.default ⫽
       { src = "src/illiterate.dats"
       , target = "target/lit"
       , gcBin = True
+      , libs = [ "pthread" ]
       }
     ]
   , compiler = [0,3,10]

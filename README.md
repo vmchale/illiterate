@@ -10,6 +10,13 @@ programming.
 
 ## Installation
 
+### Releases
+
+You can find releases for select platforms
+[here](https://github.com/vmchale/illiterate/releases).
+
+### Building From Source
+
 You can install `atspkg` and `lit` with the following:
 
 ```bash
