@@ -42,3 +42,13 @@ script:
   - atspkg build -vv
   - ./target/lit test/data/calc.ly
   - ./target/lit test/data/setup.lhs
+  - mv target/lit lit-$TARGET
+
+deploy:
+  api_key:
+    secure: "Kjm8ATVn4gRcjN4Q1pVQvsARYLw7AtqmY7jkr+/sRIHyen/4cyeeaJ85xuwtcORLmhkq4uWSX8Qw4Ei1hPjuz8ONYh1nYwLsj+YRyvX5a5gRdXcxFE+2F0L4ho35qCbdpmqz2x9xZgIINHE7pH0br12zIYJ/ECD2TjWcv35P1LJfl48p8AUJ7gWCt0Fnm1f8WV+1QzlVpPQdP3Iv/atj8WWRbtTnqBY/XLkgstRuyDStozylvHxbxcqfnmhX8BJHPESLzsaF+0I/XV9DCa4iGIhYYpvz20aPx84RjAU4Q+9r/KarGG8tVHbrG8gGwyzB0sbtvs6bn+1HTaU3TdVoU5egrP71i/JXfFb5Qp/PHci5SCSd585hP6xUFUMvLrZK8hsIOPgmpOM+cnUYcmzh9nNRklqYEg0CEzGB619k1Re05eoz2sJgBEtE+MAtAPOqAbIXHHY7NenJQ1chwLqOUtc3HJymT2qHqu5s5M3e0BUxKn3Bd3HABnGWo1ZNqT+asIapBtgEfZzrC2HKLjmWCMvd6GFmaJE8w9cXpV38CTiBSWNyW06T13ouBXtbws/xHDJ8rg1Tn4Jp+FG5hwzMaINC9GOjQdHOQ+og1XmkMfgaNPmmUtOW4n+fwqag4ejg7up0ZoeEssOAH0joeHKB3HRXKdYNRa5Klme4lyycyVM="
+  file: lit-$TARGET
+  on:
+    tags: true
+  provider: releases
+  skip_cleanup: true
