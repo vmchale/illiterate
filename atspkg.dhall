@@ -26,7 +26,6 @@ prelude.default ⫽
       , gcBin = True
       }
     ]
-  -- , ccompiler = "clang"
   , compiler = [0,3,10]
   , man = [ "man/lit.md" ] : Optional Text
   , cflags = ccopts # [ "-O2" ] # (if not cross then [ "-mtune=native" ] else ([] : List Text))
