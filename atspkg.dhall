@@ -24,7 +24,11 @@ prelude.default ⫽
       { src = "src/illiterate.dats"
       , target = "target/lit"
       , gcBin = True
-      , libs = [ "pthread" ]
+      , libs = if cross
+          then
+            [ "pthread" ] : List Text
+          else
+            [] : List Text
       }
     ]
   , compiler = [0,3,10]
