@@ -39,6 +39,6 @@ script:
       yamllint .yamllint
       curl -sL https://raw.githubusercontent.com/vmchale/tomlcheck/master/sh/check | sh -s .atsfmt.toml
     fi
-  - atspkg build -vvv
+  - atspkg build -vv
   - ./target/lit test/data/calc.ly
   - ./target/lit test/data/setup.lhs
