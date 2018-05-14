@@ -23,7 +23,7 @@ prelude.default ⫽
     [ prelude.bin ⫽
       { src = "src/illiterate.dats"
       , target = "target/lit"
-      , gcBin = True
+      -- , gcBin = True
       , libs = if cross
           then
             [ "pthread" ] : List Text
