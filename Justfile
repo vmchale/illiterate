@@ -1,10 +1,17 @@
 target TARGET:
-    atspkg clean ; atspkg build --target={{ TARGET }}
+    rm -rf .atspkg ; atspkg build --target={{ TARGET }}
     mv target/lit target/lit-{{ TARGET }}
 
-# TODO figure out pthread stuff? it's breaking arm-linux-gnueabihf builds of gc, which it shouldn't be (it works for poly?)
+all:
+    just target aarch64-linux-gnu
+    just target m68k-linux-gnu
+    just target arm-linux-gnueabi
+    just target hppa-linux-gnu
+    just target arm-linux-gnueabihf
+    just target sh4-linux-gnu
+
 # hppa-linux-gnu, arm-linux-gnueabihf, sh4-linux-gnu, aarch-linux-gnu, m68k-linux-gnu, arm-linux-gnueabi
-# tried: powerpc64-linux-gnu, s390x-linux-gnu, alpha-linux-gnu, h8300-hms, msp430, m68hc1x, x86_64-w64-mingw32, sparc64-linux-gnu, mips64-linux-gnuabi64, mips-linux-gnu, powerpc-linux-gnu, x86_64-unknown-redox
+# tried: powerpc64-linux-gnu, s390x-linux-gnu, alpha-linux-gnu, h8300-hms, msp430, m68hc1x, x86_64-w64-mingw32, sparc64-linux-gnu, mips64-linux-gnuabi64, mips-linux-gnu, powerpc-linux-gnu, x86_64-unknown-redox riscv64-linux-gnu
 
 release:
     git tag "$(grep -P -o '\d+\.\d+\.\d+' src/cli.dats)"

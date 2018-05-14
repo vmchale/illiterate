@@ -32,6 +32,7 @@ prelude.default ⫽
       }
     ]
   , compiler = [0,3,10]
+  , ccompiler = if cross then "cc" else "clang"
   , man = [ "man/lit.md" ] : Optional Text
   , cflags = ccopts # [ "-O2" ] # (if not cross then [ "-mtune=native" ] else ([] : List Text))
   , debPkg = prelude.mkDeb
