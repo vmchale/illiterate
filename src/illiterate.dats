@@ -1,5 +1,4 @@
 #include "share/atspre_staload.hats"
-#include "share/atspre_staload.hats"
 #include "share/atspre_staload_libats_ML.hats"
 
 staload "prelude/SATS/filebas.sats"

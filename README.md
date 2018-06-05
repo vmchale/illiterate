@@ -10,6 +10,14 @@ programming.
 
 ## Installation
 
+### Script
+
+You can install with
+
+```bash
+curl https://raw.githubusercontent.com/vmchale/illiterate/master/bash/install.sh | sh -s
+```
+
 ### Releases
 
 You can find releases for select platforms

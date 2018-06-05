@@ -2,7 +2,7 @@
 let prelude = https://raw.githubusercontent.com/vmchale/atspkg/master/ats-pkg/dhall/atspkg-prelude.dhall
 in
 
-let not = https://raw.githubusercontent.com/dhall-lang/dhall-haskell/master/Prelude/Bool/not
+let not = https://hackage.haskell.org/package/dhall-1.14.0/src/Prelude/Bool/not
 in
 
 {- Configuration -}
@@ -23,7 +23,7 @@ prelude.default ⫽
     [ prelude.bin ⫽
       { src = "src/illiterate.dats"
       , target = "target/lit"
-      -- , gcBin = True
+      , gcBin = True
       , libs = if cross
           then
             [ "pthread" ] : List Text

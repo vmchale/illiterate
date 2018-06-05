@@ -4,13 +4,13 @@ target TARGET:
 
 all:
     just target aarch64-linux-gnu
-    just target m68k-linux-gnu
-    just target arm-linux-gnueabi
     just target hppa-linux-gnu
     just target arm-linux-gnueabihf
     just target sh4-linux-gnu
+    just target m68k-linux-gnu
+    just target arm-linux-gnueabi
 
-# hppa-linux-gnu, arm-linux-gnueabihf, sh4-linux-gnu, aarch-linux-gnu, m68k-linux-gnu, arm-linux-gnueabi
+# hppa-linux-gnu, arm-linux-gnueabihf, sh4-linux-gnu, aarch64-linux-gnu, m68k-linux-gnu, arm-linux-gnueabi
 # tried: powerpc64-linux-gnu, s390x-linux-gnu, alpha-linux-gnu, h8300-hms, msp430, m68hc1x, x86_64-w64-mingw32, sparc64-linux-gnu, mips64-linux-gnuabi64, mips-linux-gnu, powerpc-linux-gnu, x86_64-unknown-redox riscv64-linux-gnu
 
 release:
