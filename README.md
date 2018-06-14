@@ -34,7 +34,7 @@ atspkg remote https://github.com/vmchale/illiterate/archive/master.zip
 
 ### Manpages
 
-If install [pandoc](http://pandoc.org/installing.html), manpages will be
+If you install [pandoc](http://pandoc.org/installing.html), manpages will be
 automatically generated when running the above. You can view them with
 
 ```bash
