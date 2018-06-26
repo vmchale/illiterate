@@ -43,11 +43,8 @@ fun process(arg : string, acc : cli_config, is_zero : bool) : cli_config =
     !acc_r
   end
 
-fun get_cli { n : int | n >= 1 }{ m : nat | m < n } .<n-m>. ( argc : int(n)
-                                                            , argv : !argv(n)
-                                                            , current : int(m)
-                                                            , acc : cli_config
-                                                            ) : cli_config =
+fun get_cli { n : int | n >= 1 }{ m : nat | m < n } .<n-m>. (argc : int(n), argv : !argv(n), current : int(m), acc : cli_config) :
+  cli_config =
   let
     var arg = argv[current]
     val cfg = process(arg, acc, current = 0)
