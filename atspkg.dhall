@@ -6,7 +6,7 @@ let not = https://hackage.haskell.org/package/dhall-1.14.0/src/Prelude/Bool/not
 in
 
 {- Configuration -}
-let cross = False
+let cross = True
 in
 
 {- Helpers -}
