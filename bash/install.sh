@@ -27,12 +27,12 @@ main() {
     url="https://github.com/vmchale/illiterate/releases/download/$latest/$binname"
     man_url="https://github.com/vmchale/illiterate/releases/download/$latest/lit.1"
 
-    if command -v duma > /dev/null ; then
-        duma "$url" -O "$dest"
-        duma "$man_url" -O "$man_dest"
-    else
+    if command -v wget > /dev/null ; then
         wget "$url" -O "$dest"
         wget "$man_url" -O "$man_dest"
+    else
+        curl "$url" -o "$dest"
+        curl "$man_url" -o "$man_dest"
     fi
 
     chmod +x "$dest"

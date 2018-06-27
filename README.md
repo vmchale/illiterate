@@ -32,6 +32,14 @@ curl -sSl https://raw.githubusercontent.com/vmchale/atspkg/master/bash/install.s
 atspkg remote https://github.com/vmchale/illiterate/archive/master.zip
 ```
 
+If you want to hack on the source:
+
+```bash
+git clone git@github.com:vmchale/illiterate.git
+cd illiterate/
+atspkg build
+```
+
 ### Manpages
 
 If you install [pandoc](http://pandoc.org/installing.html), manpages will be
