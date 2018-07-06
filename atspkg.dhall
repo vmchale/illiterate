@@ -1,8 +1,8 @@
 {- Imports -}
-let prelude = https://raw.githubusercontent.com/vmchale/atspkg/master/ats-pkg/dhall/atspkg-prelude.dhall
+let prelude = http://hackage.haskell.org/package/ats-pkg/src/dhall/atspkg-prelude.dhall
 in
 
-let not = https://hackage.haskell.org/package/dhall-1.14.0/src/Prelude/Bool/not
+let not = https://hackage.haskell.org/package/dhall/src/Prelude/Bool/not
 in
 
 {- Configuration -}
@@ -22,7 +22,7 @@ prelude.default ⫽
   { bin =
     [ prelude.bin ⫽
       { src = "src/illiterate.dats"
-      , target = "target/lit"
+      , target = "${prelude.atsProject}/lit"
       , gcBin = True
       , libs = if cross
           then
@@ -40,6 +40,6 @@ prelude.default ⫽
         , maintainer = "Vanessa McHale <vamchale@gmail.com>"
         , description = "Literate programming preprocessor"
         , manpage = man
-        , binaries = [ "target/lit" ]
+        , binaries = [ "${prelude.atsProject}/lit" ]
         })
   }
