@@ -18,9 +18,7 @@ all:
     atspkg build --target=arm-linux-gnueabi --pkg-args "./no-gc.dhall True"
     atspkg build --target=riscv64-linux-gnu --pkg-args "./no-gc.dhall True"
     atspkg build --target=hppa-linux-gnu --pkg-args "./no-gc.dhall True"
-    atspkg build --target=m68hc11 --pkg-args "./no-gc.dhall True"
     atspkg build --target=sparc64-linux-gnu --pkg-args "./no-gc.dhall True"
-    atspkg build --target=msp430 --pkg-args "./no-gc.dhall True"
 
 bench:
     bench "./target/lit test/data/calc.ly" "lit test/data/calc.ly"
@@ -64,6 +62,9 @@ release: all
     github-release upload -s $(cat ~/.git-token) -u vmchale -r polyglot -n poly-x86_64-unknown-redox -f target/poly-x86_64-unknown-redox -t "$(grep -P -o '\d+\.\d+\.\d+' src/cli.dats)"
     github-release upload -s $(cat ~/.git-token) -u vmchale -r polyglot -n poly-sh4-linux-gnu -f target/poly-sh4-linux-gnu -t "$(grep -P -o '\d+\.\d+\.\d+' src/cli.dats)"
     github-release upload -s $(cat ~/.git-token) -u vmchale -r polyglot -n poly-arm-linux-gnuabi -f target/poly-arm-linux-gnuabi -t "$(grep -P -o '\d+\.\d+\.\d+' src/cli.dats)"
+    github-release upload -s $(cat ~/.git-token) -u vmchale -r polyglot -n poly-riscv64-linux-gnu -f target/poly-riscv64-linux-gnu -t "$(grep -P -o '\d+\.\d+\.\d+' src/cli.dats)"
+    github-release upload -s $(cat ~/.git-token) -u vmchale -r polyglot -n poly-hppa-linux-gnu -f target/poly-hppa-linux-gnu -t "$(grep -P -o '\d+\.\d+\.\d+' src/cli.dats)"
+    github-release upload -s $(cat ~/.git-token) -u vmchale -r polyglot -n poly-sparc64-linux-gnu -f target/poly-sparc64-linux-gnu -t "$(grep -P -o '\d+\.\d+\.\d+' src/cli.dats)"
     github-release upload -s $(cat ~/.git-token) -u vmchale -r polyglot -n poly.1 -f man/poly.1 -t "$(grep -P -o '\d+\.\d+\.\d+' src/cli.dats)"
     github-release upload -s $(cat ~/.git-token) -u vmchale -r polyglot -n poly.usage -f compleat/poly.usage -t "$(grep -P -o '\d+\.\d+\.\d+' src/cli.dats)"
     github-release upload -s $(cat ~/.git-token) -u vmchale -r polyglot -n polyglot.deb -f target/polyglot.deb -t "$(grep -P -o '\d+\.\d+\.\d+' src/cli.dats)"
