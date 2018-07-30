@@ -39,9 +39,6 @@ clean:
     rm -f tags
     atspkg clean
 
-deb:
-    atspkg build target/illiterate.deb
-
 release: all
     git tag "$(grep -P -o '\d+\.\d+\.\d+' src/cli.dats)"
     git push origin --tags
