@@ -58,11 +58,11 @@ release: all
     github-release upload -s $(cat ~/.git-token) -u vmchale -r illiterate -n lit-mips64el-linux-gnuabi64 -f target/lit-mips64el-linux-gnuabi64 -t "$(grep -P -o '\d+\.\d+\.\d+' src/cli.dats)"
     github-release upload -s $(cat ~/.git-token) -u vmchale -r illiterate -n lit-x86_64-unknown-redox -f target/lit-x86_64-unknown-redox -t "$(grep -P -o '\d+\.\d+\.\d+' src/cli.dats)"
     github-release upload -s $(cat ~/.git-token) -u vmchale -r illiterate -n lit-sh4-linux-gnu -f target/lit-sh4-linux-gnu -t "$(grep -P -o '\d+\.\d+\.\d+' src/cli.dats)"
-    github-release upload -s $(cat ~/.git-token) -u vmchale -r illiterate -n lit-arm-linux-gnuabi -f target/lit-arm-linux-gnuabi -t "$(grep -P -o '\d+\.\d+\.\d+' src/cli.dats)"
+    github-release upload -s $(cat ~/.git-token) -u vmchale -r illiterate -n lit-arm-linux-gnueabi -f target/lit-arm-linux-gnueabi -t "$(grep -P -o '\d+\.\d+\.\d+' src/cli.dats)"
     github-release upload -s $(cat ~/.git-token) -u vmchale -r illiterate -n lit-riscv64-linux-gnu -f target/lit-riscv64-linux-gnu -t "$(grep -P -o '\d+\.\d+\.\d+' src/cli.dats)"
     github-release upload -s $(cat ~/.git-token) -u vmchale -r illiterate -n lit-hppa-linux-gnu -f target/lit-hppa-linux-gnu -t "$(grep -P -o '\d+\.\d+\.\d+' src/cli.dats)"
     github-release upload -s $(cat ~/.git-token) -u vmchale -r illiterate -n lit-sparc64-linux-gnu -f target/lit-sparc64-linux-gnu -t "$(grep -P -o '\d+\.\d+\.\d+' src/cli.dats)"
-    github-release upload -s $(cat ~/.git-token) -u vmchale -r illiterate -n lit.1 -f man/illiterate.1 -t "$(grep -P -o '\d+\.\d+\.\d+' src/cli.dats)"
+    github-release upload -s $(cat ~/.git-token) -u vmchale -r illiterate -n lit.1 -f man/lit.1 -t "$(grep -P -o '\d+\.\d+\.\d+' src/cli.dats)"
     github-release upload -s $(cat ~/.git-token) -u vmchale -r illiterate -n illiterate.deb -f target/illiterate.deb -t "$(grep -P -o '\d+\.\d+\.\d+' src/cli.dats)"
 
 
