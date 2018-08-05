@@ -45,6 +45,7 @@ release: all
     git tag -d "$(grep -P -o '\d+\.\d+\.\d+' src/cli.dats)"
     git push origin master
     github-release release -s $(cat ~/.git-token) -u vmchale -r illiterate -t "$(grep -P -o '\d+\.\d+\.\d+' src/cli.dats)"
+    github-release upload -s $(cat ~/.git-token) -u vmchale -r illiterate -n lit-i686-linux-gnu -f target/lit-i686-linux-gnu -t "$(grep -P -o '\d+\.\d+\.\d+' src/cli.dats)"
     github-release upload -s $(cat ~/.git-token) -u vmchale -r illiterate -n lit-s390x-linux-gnu -f target/lit-s390x-linux-gnu -t "$(grep -P -o '\d+\.\d+\.\d+' src/cli.dats)"
     github-release upload -s $(cat ~/.git-token) -u vmchale -r illiterate -n lit-arm-linux-gnueabihf -f target/lit-arm-linux-gnueabihf -t "$(grep -P -o '\d+\.\d+\.\d+' src/cli.dats)"
     github-release upload -s $(cat ~/.git-token) -u vmchale -r illiterate -n lit-aarch64-linux-gnu -f target/lit-aarch64-linux-gnu -t "$(grep -P -o '\d+\.\d+\.\d+' src/cli.dats)"
