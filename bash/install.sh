@@ -7,19 +7,18 @@ getTarget() {
     if [ "$(uname)" = "Darwin" ]
     then
         echo "lit-$(uname -m)-apple-darwin"
-    else
+    elif [ "$(uname)" = "Linux" ]
+    then
         case $(uname -m) in
             "x86_64") MACHINE="unknown-linux";;
-            "aarch64") MACHINE="linux-gnu";;
-            "alpha") MACHINE="linux-gnu";;
+            # FIXME: detect gnueabi vs. gnueabihf
             "arm") MACHINE="linux-gnueabihf";;
             "mips64"*) MACHINE="linux-gnuabi64";;
-            "mips"*) MACHINE="linux-gnu";;
-            "powerpc"*) MACHINE="linux-gnu";;
-            "s390x") MACHINE="linux-gnu";;
-            "i686") MACHINE="linux-gnu";;
+            *) MACHINE="linux-gnu";;
         esac
         echo "lit-$(uname -m)-$MACHINE"
+    else
+        echo "lit-x86_64-unknown-redox"
     fi
 }
 
