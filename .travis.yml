@@ -39,7 +39,7 @@ script:
       yamllint .yamllint
       curl -sL https://raw.githubusercontent.com/vmchale/tomlcheck/master/sh/check | sh -s .atsfmt.toml
     fi
-  - atspkg build -vv --pkg-args "./gc.dhall"
+  - travis_wait 40 atspkg build -vv --pkg-args "./gc.dhall"
   - ./target/lit test/data/calc.ly
   - ./target/lit test/data/setup.lhs
   - mv target/lit lit-$TARGET
