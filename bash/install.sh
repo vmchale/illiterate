@@ -22,6 +22,13 @@ getTarget() {
     fi
 }
 
+addBin() {
+
+    printf 'export PATH=$HOME/.local/bin:$PATH' >> "$HOME"/.bashrc
+    export PATH=$HOME/.local/bin:$PATH
+
+}
+
 main() {
 
     latest="$(curl -s https://github.com/vmchale/illiterate/releases/latest/ | cut -d'"' -f2 | rev | cut -d'/' -f1 | rev)"
@@ -46,6 +53,11 @@ main() {
     fi
 
     chmod +x "$dest"
+
+    case :$PATH: in
+        *:$HOME/.local/bin:*) ;;
+        *) addBin ;;
+    esac
 
 }
 
