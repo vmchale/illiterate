@@ -10,13 +10,17 @@ getTarget() {
     elif [ "$(uname)" = "Linux" ]
     then
         case $(uname -m) in
+            "armv7l") ARCH="arm";;
+            *) ARCH="$(uname -m)";;
+        esac
+        case $ARCH in
             "x86_64") MACHINE="unknown-linux";;
             # FIXME: detect gnueabi vs. gnueabihf
             "arm") MACHINE="linux-gnueabihf";;
             "mips64"*) MACHINE="linux-gnuabi64";;
             *) MACHINE="linux-gnu";;
         esac
-        echo "lit-$(uname -m)-$MACHINE"
+        echo "lit-$ARCH-$MACHINE"
     else
         echo "lit-x86_64-unknown-redox"
     fi

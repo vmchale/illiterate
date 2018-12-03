@@ -1,5 +1,6 @@
 typedef cli_config = @{ should_help = bool, version = bool, input_f = string }
 
+// string_is_prefix
 fun is_flag(s : string) : bool =
   string_is_prefix("-", s)
 

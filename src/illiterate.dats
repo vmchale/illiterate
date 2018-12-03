@@ -62,6 +62,7 @@ fun loop_process(x : stream_vt(string), code_block : bool) : stream_vt(string) =
     | ~stream_vt_cons (x, xs) => loop_process(xs, code_block)
     | ~stream_vt_nil() => $ldelay(stream_vt_nil)
 
+// TODO: remove ML library
 fun process(in_file : string) : string =
   let
     var file_ref = fileref_open_exn(in_file, file_mode_r)
