@@ -19,3 +19,4 @@ atspkg build --target=arm-linux-gnueabi --pkg-args "./no-gc.dhall True"
 atspkg build --target=riscv64-linux-gnu --pkg-args "./no-gc.dhall True"
 atspkg build --target=hppa-linux-gnu --pkg-args "./no-gc.dhall True"
 atspkg build --target=sparc64-linux-gnu --pkg-args "./no-gc.dhall True"
+atspkg build --target=powerpc-linux-gnuspe --pkg-args './gc.dhall'

@@ -9,6 +9,7 @@ github-release upload -s $(cat ~/.git-token) -u vmchale -r illiterate -n lit-s39
 github-release upload -s $(cat ~/.git-token) -u vmchale -r illiterate -n lit-arm-linux-gnueabihf -f target/lit-arm-linux-gnueabihf -t "$(grep -P -o '\d+\.\d+\.\d+' src/cli.dats)"
 github-release upload -s $(cat ~/.git-token) -u vmchale -r illiterate -n lit-aarch64-linux-gnu -f target/lit-aarch64-linux-gnu -t "$(grep -P -o '\d+\.\d+\.\d+' src/cli.dats)"
 github-release upload -s $(cat ~/.git-token) -u vmchale -r illiterate -n lit-powerpc-linux-gnu -f target/lit-powerpc-linux-gnu -t "$(grep -P -o '\d+\.\d+\.\d+' src/cli.dats)"
+github-release upload -s $(cat ~/.git-token) -u vmchale -r illiterate -n lit-powerpc-linux-gnuspe -f target/lit-powerpc-linux-gnuspe -t "$(grep -P -o '\d+\.\d+\.\d+' src/cli.dats)"
 github-release upload -s $(cat ~/.git-token) -u vmchale -r illiterate -n lit-powerpc64-linux-gnu -f target/lit-powerpc64-linux-gnu -t "$(grep -P -o '\d+\.\d+\.\d+' src/cli.dats)"
 github-release upload -s $(cat ~/.git-token) -u vmchale -r illiterate -n lit-powerpc64le-linux-gnu -f target/lit-powerpc64le-linux-gnu -t "$(grep -P -o '\d+\.\d+\.\d+' src/cli.dats)"
 github-release upload -s $(cat ~/.git-token) -u vmchale -r illiterate -n lit-alpha-linux-gnu -f target/lit-alpha-linux-gnu -t "$(grep -P -o '\d+\.\d+\.\d+' src/cli.dats)"
