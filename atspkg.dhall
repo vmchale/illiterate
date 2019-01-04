@@ -34,6 +34,9 @@ in
             ]
         , ccompiler = if cfg.cross then "cc" else "clang"
         , man = [ "man/lit.md" ] : Optional Text
+        , clib = if cfg.static
+          then [ prelude.upperDeps { name = "gc", version = [7,6,8] } ]
+          else prelude.mapPlainDeps ([] : List Text)
         , cflags = ccopts # [ "-O2" ] # staticFlag # (if not cfg.cross then [ "-mtune=native" ] else ([] : List Text))
         , debPkg = prelude.mkDeb
             (prelude.debian "illiterate" ⫽
