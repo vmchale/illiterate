@@ -14,7 +14,7 @@ fun fail(s : string) : void =
 
 fun version() : void =
   {
-    val _ = println!("illiterate version 0.1.1\nCopyright (c) 2018-2019 Vanessa McHale")
+    val _ = println!("illiterate version 0.1.2\nCopyright (c) 2018-2019 Vanessa McHale")
     val _ = exit(0)
   }
 

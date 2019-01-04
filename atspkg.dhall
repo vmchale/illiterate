@@ -40,7 +40,7 @@ in
         , cflags = ccopts # [ "-O2" ] # staticFlag # (if not cfg.cross then [ "-mtune=native" ] else ([] : List Text))
         , debPkg = prelude.mkDeb
             (prelude.debian "illiterate" ⫽
-                { version = [0,1,1]
+                { version = [0,1,2]
                 , maintainer = "Vanessa McHale <vamchale@gmail.com>"
                 , description = "Literate programming preprocessor"
                 , manpage = man
