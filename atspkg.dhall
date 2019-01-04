@@ -13,7 +13,12 @@ let man = [ "man/lit.1" ]
   : Optional Text
 in
 
-λ(cfg : { gc : Bool, pthread : Bool, cross : Bool }) →
+λ(cfg : { gc : Bool, pthread : Bool, static : Bool, cross : Bool }) →
+    let staticFlag =
+        if cfg.static
+            then [ "-static" ]
+            else ([] : List Text)
+    in
     prelude.default ⫽
         { bin =
             [ prelude.bin ⫽
@@ -29,7 +34,7 @@ in
             ]
         , ccompiler = if cfg.cross then "cc" else "clang"
         , man = [ "man/lit.md" ] : Optional Text
-        , cflags = ccopts # [ "-O2" ] # (if not cfg.cross then [ "-mtune=native" ] else ([] : List Text))
+        , cflags = ccopts # [ "-O2" ] # staticFlag # (if not cfg.cross then [ "-mtune=native" ] else ([] : List Text))
         , debPkg = prelude.mkDeb
             (prelude.debian "illiterate" ⫽
                 { version = [0,1,1]

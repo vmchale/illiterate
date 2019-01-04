@@ -1,2 +1,2 @@
 λ(pthread : Bool) →
-    { gc = False, pthread = pthread, cross = True }
+    { gc = False, pthread = pthread, static = False, cross = True }

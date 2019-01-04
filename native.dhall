@@ -1,1 +1,1 @@
-{ gc = True, pthread = False, cross = False }
+{ gc = True, pthread = False, static = True, cross = False }

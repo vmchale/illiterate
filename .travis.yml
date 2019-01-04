@@ -39,7 +39,12 @@ script:
       yamllint .yamllint
       curl -sL https://raw.githubusercontent.com/vmchale/tomlcheck/master/sh/check | sh -s .atsfmt.toml
     fi
-  - travis_wait 40 atspkg build -vv --pkg-args "./gc.dhall"
+    if [ $TARGET = "x86_64-unknown-linux" ]
+    then
+      travis_wait 40 atspkg build -vv --pkg-args "./gc.dhall"
+    else
+      travis_wait 40 atspkg build -vv --pkg-args "./mac.dhall"
+    fi
   - ./target/lit test/data/calc.ly
   - ./target/lit test/data/setup.lhs
   - mv target/lit lit-$TARGET
