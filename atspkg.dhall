@@ -1,16 +1,13 @@
 {- Imports -}
-let prelude = http://hackage.haskell.org/package/ats-pkg/src/dhall/atspkg-prelude.dhall
-in
+let prelude = https://raw.githubusercontent.com/vmchale/atspkg/master/ats-pkg/dhall/atspkg-prelude.dhall
 
 let not = https://raw.githubusercontent.com/dhall-lang/dhall-lang/master/Prelude/Bool/not
 in
 
 {- Helpers -}
 let ccopts = [ "-flto" ]
-in
 
-let man = [ "man/lit.1" ]
-  : Optional Text
+let man = Some "man/lit.1"
 in
 
 λ(cfg : { gc : Bool, pthread : Bool, static : Bool, cross : Bool }) →
@@ -33,7 +30,7 @@ in
                 }
             ]
         , ccompiler = if cfg.cross then "cc" else "clang"
-        , man = [ "man/lit.md" ] : Optional Text
+        , man = Some "man/lit.md"
         , clib = if cfg.static
           then [ prelude.upperDeps { name = "gc", version = [7,6,8] } ]
           else prelude.mapPlainDeps ([] : List Text)
