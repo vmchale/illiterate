@@ -23,7 +23,8 @@ install:
   - |
     if [ $TARGET = "x86_64-unknown-linux" ]
     then
-      pip3 install yamllint --user
+      pip3 install setuptools --user --upgrade
+      pip3 install yamllint --user --upgrade
     else
       echo 'skipping'
     fi
