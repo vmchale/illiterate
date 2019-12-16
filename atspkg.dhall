@@ -1,7 +1,7 @@
 {- Imports -}
-let prelude = https://raw.githubusercontent.com/vmchale/atspkg/master/ats-pkg/dhall/atspkg-prelude.dhall
+let prelude = https://raw.githubusercontent.com/vmchale/atspkg/master/ats-pkg/dhall/atspkg-prelude.dhall sha256:33e41e509b6cfd0b075d1a8a5210ddfd1919372f9d972c2da783c6187d2298ba
 
-let not = https://raw.githubusercontent.com/dhall-lang/dhall-lang/master/Prelude/Bool/not
+let not = https://raw.githubusercontent.com/dhall-lang/dhall-lang/master/Prelude/Bool/not sha256:723df402df24377d8a853afed08d9d69a0a6d86e2e5b2bac8960b0d4756c7dc4
 in
 
 {- Helpers -}
